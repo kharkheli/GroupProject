@@ -1,6 +1,6 @@
 ﻿namespace GroupProject
 {
-    partial class Form1
+    partial class Admin
     {
         /// <summary>
         ///  Required designer variable.
@@ -36,7 +36,6 @@
             header.TabIndex = 0;
             header.Text = "Avtorizacia";
             header.TextAlign = ContentAlignment.MiddleCenter;
-            header.Click += header_Click;
             // 
             // input_email
             // 
@@ -83,7 +82,7 @@
             button_login.UseVisualStyleBackColor = true;
             button_login.Click += button_login_Click;
             // 
-            // Form1
+            // Admin
             // 
             AcceptButton = button_login;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -97,7 +96,7 @@
             Controls.Add(input_email);
             Controls.Add(header);
             ForeColor = Color.Black;
-            Name = "Form1";
+            Name = "Admin";
             Text = "Admin";
             TransparencyKey = Color.Black;
             Load += Form1_Load;
@@ -114,6 +113,5 @@
         private Label label_password;
         private TextBox input_password;
         private Button button_login;
-
     }
 }

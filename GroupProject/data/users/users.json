@@ -1,58 +1,30 @@
 [
   {
-    "Id": 1,
-    "Name": "Alice Johnson",
-    "Email": "alicejohnson@mail.com",
-    "Role": "Admin",
-    "Password": ""
-  },
-  {
     "Id": 2,
     "Name": "Bob Smith",
     "Email": "bobsmith@mail.com",
     "Role": "Client",
-    "Password": ""
-  },
-  {
-    "Id": 0,
-    "Name": "ilia",
-    "Email": "email",
-    "Role": "Hr",
-    "Password": "passowrd"
+    "Password": "password"
   },
   {
     "Id": 0,
     "Name": "a",
     "Email": "a",
     "Role": "Hr",
-    "Password": "a"
+    "Password": "password"
   },
   {
-    "Id": 0,
-    "Name": "boop",
-    "Email": "boop",
-    "Role": "Client",
-    "Password": "popp"
-  },
-  {
-    "Id": 0,
-    "Name": "123",
-    "Email": "123",
+    "Id": 5,
+    "Name": "hr",
+    "Email": "hr",
     "Role": "Hr",
-    "Password": "123"
+    "Password": "password"
   },
   {
-    "Id": 0,
-    "Name": "sad",
-    "Email": "asd",
-    "Role": "Client",
-    "Password": "asd"
-  },
-  {
-    "Id": 0,
-    "Name": "qwe",
-    "Email": "qweqwe",
-    "Role": "Hr",
-    "Password": "qwe"
+    "Id": 6,
+    "Name": "suply",
+    "Email": "suply",
+    "Role": "Suplier",
+    "Password": "password"
   }
 ]

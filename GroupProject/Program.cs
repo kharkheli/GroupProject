@@ -11,9 +11,8 @@ namespace GroupProject
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var form2 = new hr();
 
-            Application.Run(form2);
+            Application.Run(new Admin());
         }
     }
 }

@@ -16,22 +16,21 @@ namespace GroupProject
     public partial class hr : Form
     {
         public User ActiveUser { get; set; } = new User();
-        public hr()
+        public User me;
+        public hr(User user)
         {
             InitializeComponent();
 
 
             hr_load();
-           
+            this.me = user;
         }
 
         private void hr_load()
         {
-            for (int i = 0; i < UserStorage.Users.Count; i++)
-            {
-                UsersGrid.Rows.Add(UserStorage.Users[i].Id, UserStorage.Users[i].Name, UserStorage.Users[i].Email, UserStorage.Users[i].Role, UserStorage.Users[i].Password);
-            }
-            UsersGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            var users = UserStorage.Users;
+            UsersGrid.DataSource = new BindingList<User>(users);
+
         }
 
 
@@ -46,12 +45,23 @@ namespace GroupProject
 
         private void UsersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ActiveUser = UserStorage.Users[e.RowIndex] as User;
-            input_name.Text = ActiveUser.Name;
-            input_email.Text = ActiveUser.Email;
-            input_password.Text = ActiveUser.Password;
-            input_role.Text = ActiveUser.Role;
-
+            if (e.ColumnIndex == UsersGrid.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
+                // Handle the delete button click
+                var user = UserStorage.Users[e.RowIndex];
+                UserStorage.RemoveUser(user);
+                hr_load(); // Reload the grid to reflect changes
+                return;
+            }
+            if (e.ColumnIndex == UsersGrid.Columns["Edit"].Index && e.RowIndex >= 0)
+            {
+                // Handle the edit button click
+                ActiveUser = UserStorage.Users[e.RowIndex] as User;
+                input_name.Text = ActiveUser.Name;
+                input_email.Text = ActiveUser.Email;
+                input_password.Text = ActiveUser.Password;
+                input_role.Text = ActiveUser.Role;
+            }
 
         }
 
@@ -94,10 +104,17 @@ namespace GroupProject
             input_password.Clear();
             input_role.Text = string.Empty;
             hr_load(); // Reload the grid to reflect changes
-            
+
 
             // All fields are set, proceed with saving logic
             // ...
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var adminForm = new Admin();
+            adminForm.Show();
+            this.Hide();
         }
     }
 }

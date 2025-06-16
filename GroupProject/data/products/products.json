@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Name": "Laptop",
+    "Description": "A high-performance laptop for gaming and work.",
+    "Price": 1200.00,
+    "StockQuantity": 0,
+    "Suplier": 0
+  },
+  {
+    "Id": 2,
+    "Name": "product",
+    "Description": "desc",
+    "Price": 10,
+    "StockQuantity": 10,
+    "Suplier": 6
+  },
+  {
+    "Id": 3,
+    "Name": "product",
+    "Description": "descr",
+    "Price": 10,
+    "StockQuantity": 10,
+    "Suplier": 6
+  }
+]

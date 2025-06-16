@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GroupProject.data.products
+public class Product
 {
-    internal class Product
-    {
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
+    public int StockQuantity { get; set; }
+
+    public int Suplier {  get; set; }
 }
+

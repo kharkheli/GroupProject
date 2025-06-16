@@ -28,13 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            UsersGrid = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            NameColumn = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Role = new DataGridViewComboBoxColumn();
-            Password = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewImageColumn();
+            components = new System.ComponentModel.Container();
             input_name = new TextBox();
             input_email = new TextBox();
             input_password = new TextBox();
@@ -44,54 +38,21 @@
             label4 = new Label();
             save_button = new Button();
             input_role = new ComboBox();
+            userBindingSource = new BindingSource(components);
+            UsersGrid = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Edit = new DataGridViewImageColumn();
+            Delete = new DataGridViewImageColumn();
+            userBindingSource1 = new BindingSource(components);
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)UsersGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource1).BeginInit();
             SuspendLayout();
-            // 
-            // UsersGrid
-            // 
-            UsersGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            UsersGrid.Columns.AddRange(new DataGridViewColumn[] { ID, NameColumn, Email, Role, Password, Column1 });
-            UsersGrid.Location = new Point(12, 250);
-            UsersGrid.Name = "UsersGrid";
-            UsersGrid.Size = new Size(734, 150);
-            UsersGrid.TabIndex = 0;
-            UsersGrid.CellContentClick += UsersGrid_CellContentClick;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // NameColumn
-            // 
-            NameColumn.HeaderText = "Name";
-            NameColumn.Name = "NameColumn";
-            NameColumn.ReadOnly = true;
-            // 
-            // Email
-            // 
-            Email.HeaderText = "Email";
-            Email.Name = "Email";
-            Email.ReadOnly = true;
-            // 
-            // Role
-            // 
-            Role.HeaderText = "Role";
-            Role.Items.AddRange(new object[] { "Admin", "Client", "Hr", "Supplier" });
-            Role.Name = "Role";
-            Role.ReadOnly = true;
-            // 
-            // Password
-            // 
-            Password.HeaderText = "Password";
-            Password.Name = "Password";
-            Password.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Edit";
-            Column1.Name = "Column1";
             // 
             // input_name
             // 
@@ -175,11 +136,93 @@
             input_role.TabIndex = 10;
             input_role.SelectedIndexChanged += input_role_SelectedIndexChanged;
             // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(User);
+            // 
+            // UsersGrid
+            // 
+            UsersGrid.AllowUserToAddRows = false;
+            UsersGrid.AutoGenerateColumns = false;
+            UsersGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            UsersGrid.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, Edit, Delete });
+            UsersGrid.DataSource = userBindingSource1;
+            UsersGrid.Location = new Point(12, 199);
+            UsersGrid.Name = "UsersGrid";
+            UsersGrid.ReadOnly = true;
+            UsersGrid.Size = new Size(730, 150);
+            UsersGrid.TabIndex = 11;
+            UsersGrid.CellContentClick += UsersGrid_CellContentClick;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.FillWeight = 50F;
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            roleDataGridViewTextBoxColumn.HeaderText = "Role";
+            roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            roleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            Edit.HeaderText = "Edit";
+            Edit.Name = "Edit";
+            Edit.ReadOnly = true;
+            // 
+            // Delete
+            // 
+            Delete.HeaderText = "Delete";
+            Delete.Name = "Delete";
+            Delete.ReadOnly = true;
+            // 
+            // userBindingSource1
+            // 
+            userBindingSource1.DataSource = typeof(User);
+            // 
+            // button1
+            // 
+            button1.Location = new Point(667, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 12;
+            button1.Text = "Log Out";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // hr
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
+            Controls.Add(UsersGrid);
             Controls.Add(input_role);
             Controls.Add(save_button);
             Controls.Add(label4);
@@ -189,17 +232,16 @@
             Controls.Add(input_password);
             Controls.Add(input_email);
             Controls.Add(input_name);
-            Controls.Add(UsersGrid);
             Name = "hr";
             Text = "Hr";
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)UsersGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView UsersGrid;
         private TextBox input_name;
         private TextBox input_email;
         private TextBox input_password;
@@ -208,12 +250,17 @@
         private Label label3;
         private Label label4;
         private Button save_button;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn NameColumn;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewComboBoxColumn Role;
-        private DataGridViewTextBoxColumn Password;
-        private DataGridViewImageColumn Column1;
         private ComboBox input_role;
+        private BindingSource userBindingSource;
+        private DataGridView UsersGrid;
+        private BindingSource userBindingSource1;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private DataGridViewImageColumn Edit;
+        private DataGridViewImageColumn Delete;
+        private Button button1;
     }
 }
