@@ -12,28 +12,92 @@ using System.Text.Json;
 
 namespace GroupProject
 {
+
     public partial class hr : Form
     {
+        public User ActiveUser { get; set; } = new User();
         public hr()
         {
             InitializeComponent();
 
-            string filePath = "C:/Users/kalaboki/source/repos/GroupProject/GroupProject/data/users/users.json";
-            string jsonString = System.IO.File.ReadAllText(filePath);
-            List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString) ?? new List<User>();
-            DataGridView grid = new DataGridView();
-            grid.ColumnCount = 3;
-            grid.Columns[0].Name = "ID";
-            grid.Columns[1].Name = "Name";
-            grid.Columns[2].Name = "Email";
-            for(int i = 0; i < users.Count; i++)
+
+            hr_load();
+           
+        }
+
+        private void hr_load()
+        {
+            for (int i = 0; i < UserStorage.Users.Count; i++)
             {
-                grid.Rows.Add(users[i].Id, users[i].Name, users[i].Email);
+                UsersGrid.Rows.Add(UserStorage.Users[i].Id, UserStorage.Users[i].Name, UserStorage.Users[i].Email, UserStorage.Users[i].Role, UserStorage.Users[i].Password);
             }
-            //grid.Rows.Add("1", "Alice", "30");
-            grid.Dock = DockStyle.Fill;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.Controls.Add(grid);
+            UsersGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+
+        private void UsersGrid_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            var grid = sender as DataGridView;
+            if (grid.IsCurrentCellDirty)
+            {
+                grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void UsersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ActiveUser = UserStorage.Users[e.RowIndex] as User;
+            input_name.Text = ActiveUser.Name;
+            input_email.Text = ActiveUser.Email;
+            input_password.Text = ActiveUser.Password;
+            input_role.Text = ActiveUser.Role;
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ActiveUser.Name = input_name.Text;
+        }
+
+
+        private void inputName_TextChanged(object sender, EventArgs e)
+        {
+            ActiveUser.Email = input_email.Text;
+        }
+
+        private void input_password_TextChanged(object sender, EventArgs e)
+        {
+            ActiveUser.Password = input_password.Text;
+        }
+
+        private void input_role_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActiveUser.Role = input_role.SelectedItem.ToString();
+        }
+
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ActiveUser.Name) ||
+                string.IsNullOrWhiteSpace(ActiveUser.Email) ||
+                string.IsNullOrWhiteSpace(ActiveUser.Role) ||
+                string.IsNullOrWhiteSpace(ActiveUser.Password))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            UserStorage.UpsertUser(ActiveUser);
+            ActiveUser = new User(); // Reset ActiveUser for next entry
+            input_name.Clear();
+            input_email.Clear();
+            input_password.Clear();
+            input_role.Text = string.Empty;
+            hr_load(); // Reload the grid to reflect changes
+            
+
+            // All fields are set, proceed with saving logic
+            // ...
         }
     }
 }
