@@ -20,7 +20,7 @@ namespace GroupProject
             InitializeComponent();
             LoadProducts();
             me = user;
-            
+
         }
 
         private void LoadProducts()
@@ -47,6 +47,11 @@ namespace GroupProject
             var adminForm = new Admin();
             adminForm.Show();
             this.Hide();
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
         }
     }
 }

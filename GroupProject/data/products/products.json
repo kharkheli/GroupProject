@@ -9,10 +9,10 @@
   },
   {
     "Id": 2,
-    "Name": "product",
-    "Description": "desc",
-    "Price": 10,
-    "StockQuantity": 10,
+    "Name": "saati",
+    "Description": "asd",
+    "Price": 200,
+    "StockQuantity": 200,
     "Suplier": 6
   },
   {
@@ -21,6 +21,22 @@
     "Description": "descr",
     "Price": 10,
     "StockQuantity": 10,
+    "Suplier": 6
+  },
+  {
+    "Id": 4,
+    "Name": "nam3",
+    "Description": "22",
+    "Price": 2,
+    "StockQuantity": 2,
+    "Suplier": 6
+  },
+  {
+    "Id": 5,
+    "Name": "a",
+    "Description": "1",
+    "Price": 2,
+    "StockQuantity": 2,
     "Suplier": 6
   }
 ]

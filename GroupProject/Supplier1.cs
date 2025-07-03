@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GroupProject
 {
-    public partial class Supplier : Form
+    public partial class Supplier1 : Form
     {
         private User me;
         private int ProductId;
@@ -70,7 +70,7 @@ namespace GroupProject
             product.Price = price;
             product.Suplier = me.Id;
             product.StockQuantity = stock;
-            if(ProductId >= 0)
+            if (ProductId >= 0)
             {
                 product.Id = ProductId;
             }

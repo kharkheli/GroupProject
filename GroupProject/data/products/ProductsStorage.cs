@@ -78,4 +78,13 @@ public static class ProductsStorage
     {
         return Products.Where(p => p.Suplier == user.Id).ToArray();
     }
+
+    public static void UpdateStock(int id, int quantity)
+    {
+        var product = Products.Find(p => p.Id == id);
+        if (product != null) { 
+            product.StockQuantity = quantity;
+            WriteProducts();
+        }
+    }
 }

@@ -1,15 +1,15 @@
 [
   {
     "Id": 2,
-    "Name": "Bob Smith",
-    "Email": "bobsmith@mail.com",
+    "Name": "ilia",
+    "Email": "client",
     "Role": "Client",
     "Password": "password"
   },
   {
     "Id": 0,
-    "Name": "a",
-    "Email": "a",
+    "Name": "gio",
+    "Email": "LoedDar@GMAIL.COM",
     "Role": "Hr",
     "Password": "password"
   },
